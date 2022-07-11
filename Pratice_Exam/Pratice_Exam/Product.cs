@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -50,9 +50,32 @@ namespace Pratice_Exam
             return list;
         }
 
-        public bool deletepd()
+        public Product FindByID(string id)
         {
-            Console.WriteLine("Id");
+            Product searchResult = null;
+            if (list != null && list.Count > 0)
+            {
+                foreach (Product searchpd in list)
+                {
+                    if (searchpd.id.Equals(id))
+                    {
+                        searchResult = searchpd;
+                    }
+                }
+            }
+            return searchResult;
         }
+
+        public bool deletebyid(string id)
+        {
+            bool deleteID = false;
+            Product pddelete = FindByID(id);
+            if(pddelete != null)
+            {
+                deleteID = list.Remove(pddelete);
+            }
+            return deleteID;
+        }
+      
     }
 }
