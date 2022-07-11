@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -38,7 +38,14 @@ namespace Pratice_Exam
                         }
                     case 3:
                         {
-                            Console.WriteLine("Delete");
+                            string id;
+                            Console.WriteLine("Delete product by Id");            
+                            Console.Write("\nNhap ID: ");
+                            id = Console.ReadLine();
+                            if (pd.deletebyid(id))
+                            {
+                                Console.WriteLine("Delete successfully",id);
+                            }
                             break;
                         }
                     case 4:
